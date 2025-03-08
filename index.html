@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vadhul - Portfolio</title>
+    <title>Vadhul - Full Stack Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -14,12 +14,13 @@
             box-sizing: border-box;
         }
 
-        /* Base Styles */
+        /* Core Variables */
         :root {
-            --primary: #3B82F6;
-            --secondary: #6366F1;
-            --dark: #1E293B;
-            --light: #F8FAFC;
+            --primary: #2563eb;
+            --secondary: #4f46e5;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
@@ -31,19 +32,20 @@
         }
 
         /* Navigation */
-        nav {
+        .glass-nav {
             position: fixed;
             width: 100%;
-            padding: 1.5rem 2rem;
+            padding: 1.5rem 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
         }
 
         .nav-content {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -51,14 +53,14 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
-            text-decoration: none;
             color: var(--dark);
+            text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
@@ -67,104 +69,157 @@
 
         /* Hero Section */
         .hero {
-            padding: 15rem 2rem 8rem;
+            padding: 18rem 0 10rem;
             min-height: 100vh;
-            text-align: center;
         }
 
-        .gradient-text {
+        .gradient-heading {
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-size: 4rem;
+            font-size: 5rem;
             line-height: 1.1;
             margin-bottom: 2rem;
         }
 
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
         /* Projects Grid */
-        .projects-grid {
+        .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            padding: 6rem 0;
         }
 
         .project-card {
             background: white;
-            border-radius: 1rem;
-            padding: 1.5rem;
+            border-radius: 1.5rem;
+            overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            transition: var(--transition);
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
         }
 
-        /* Skills Section */
+        .project-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 2rem;
+            padding: 4rem 0;
         }
 
         .skill-item {
-            text-align: center;
-            padding: 1rem;
             background: white;
-            border-radius: 0.5rem;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: var(--transition);
         }
 
-        /* Contact Form */
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
         input, textarea {
             width: 100%;
             padding: 1rem;
-            margin-bottom: 1rem;
             border: 2px solid #e2e8f0;
-            border-radius: 0.5rem;
+            border-radius: 0.75rem;
+            transition: var(--transition);
         }
 
-        button {
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
             background: var(--primary);
             color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
-                padding: 12rem 1rem 4rem;
+                padding: 12rem 0 6rem;
             }
 
-            .gradient-text {
-                font-size: 2.5rem;
+            .gradient-heading {
+                font-size: 3rem;
             }
 
-            .projects-grid {
+            .project-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
+    <nav class="glass-nav">
         <div class="nav-content">
-            <h1>Vadhul</h1>
+            <h2>Vadhul</h2>
             <div class="nav-links">
                 <a href="#work">Work</a>
                 <a href="#skills">Skills</a>
@@ -174,40 +229,62 @@
     </nav>
 
     <section class="hero">
-        <h1 class="gradient-text">Digital Creator</h1>
-        <p>Full Stack Developer & UI Designer</p>
-        <div style="margin-top: 2rem;">
-            <button onclick="location.href='#work'">View Work</button>
+        <div class="nav-content">
+            <div>
+                <h1 class="gradient-heading">Building digital experiences that create impact</h1>
+                <p class="hero-subtitle">Full Stack Developer specializing in modern web technologies and user-centric design</p>
+                <a href="#work" class="btn btn-primary">View Projects</a>
+            </div>
         </div>
     </section>
 
     <section id="work">
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Project description</p>
+        <div class="nav-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 1">
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>Modern shopping experience with React & Node.js</p>
+                    </div>
+                </div>
+                <!-- Add more project cards -->
             </div>
-            <!-- Add more projects -->
         </div>
     </section>
 
     <section id="skills">
-        <div class="skills-grid">
-            <div class="skill-item">
-                <i class="fab fa-react"></i>
-                <p>React</p>
+        <div class="nav-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-react fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>React</h3>
+                </div>
+                <!-- Add more skills -->
             </div>
-            <!-- Add more skills -->
         </div>
     </section>
 
-    <section id="contact">
-        <form class="contact-form">
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <textarea placeholder="Message" rows="5"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+    <section id="contact" class="contact-section">
+        <div class="nav-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Let's Connect</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
     </section>
 
     <script>
@@ -216,7 +293,8 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             });
         });
@@ -229,26 +307,20 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        });
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.project-card, .skill-item').forEach((el) => {
+        document.querySelectorAll('.project-card, .skill-item').forEach(el => {
             el.style.opacity = 0;
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease-out';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             observer.observe(el);
         });
 
         // Form handling
         document.querySelector('form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Message sent successfully!');
+            alert('Thank you for your message! I'll respond shortly.');
             e.target.reset();
-        });
-
-        // Initialization check
-        console.log('Script loaded successfully');
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('DOM fully loaded');
         });
     </script>
 </body>
