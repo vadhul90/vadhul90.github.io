@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vadhul - EPM Cloud Solution Architect</title>
+    <title>Vadhul - EPM Architect</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -15,9 +14,8 @@
         <div class="container">
             <a href="/" class="logo">Vadhul</a>
             <div class="nav-links">
-                <a href="#projects">Projects</a>
+                <a href="#work">Work</a>
                 <a href="#skills">Skills</a>
-                <a href="#blog">Blog</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -25,38 +23,38 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container vertical-center">
-            <h1 class="gradient-text">Building planning data models<br>that matter</h1>
+        <div class="container">
             <div class="hero-content">
-                <img src="images/avatar.jpg" alt="Vadhul" class="hero-avatar">
+                <h1 class="gradient-heading">Building Planning Models<br>that matter</h1>
                 <p class="hero-subtitle">EPM Architect specializing in ePBCS and Sales Planning</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn primary">Let's Work Together</a>
-                    <a href="resume.pdf" class="btn secondary">View Resume</a>
+                <div class="hero-cta">
+                    <a href="#work" class="cta-btn">View Projects</a>
+                    <a href="#contact" class="cta-btn outline">Contact Me</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section projects">
+    <!-- Work Section -->
+    <section id="work" class="section work">
         <div class="container">
             <h2 class="section-title">Featured Work</h2>
-            <div class="project-grid">
-                <!-- Repeat for each project -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
                 <article class="project-card">
                     <div class="project-image">
-                        <img src="images/projects/project1.jpg" alt="Project Name">
+                        <img src="images/project1.jpg" alt="Project 1">
                     </div>
                     <div class="project-info">
-                        <h3>Project Title</h3>
-                        <p>Project description...</p>
+                        <h3>E-commerce Platform</h3>
+                        <p>Full-stack shopping platform with React & Node.js</p>
                         <div class="project-links">
                             <a href="#" class="project-link">Live Demo</a>
                             <a href="#" class="project-link">GitHub</a>
                         </div>
                     </div>
                 </article>
+                <!-- Add more projects -->
             </div>
         </div>
     </section>
@@ -64,13 +62,14 @@
     <!-- Skills Section -->
     <section id="skills" class="section skills">
         <div class="container">
-            <h2 class="section-title">Technical Arsenal</h2>
+            <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
-                <!-- Repeat for each skill -->
-                <div class="skill-item">
+                <div class="skill-card">
                     <i class="fab fa-react skill-icon"></i>
-                    <span class="skill-name">React</span>
+                    <h3>React</h3>
+                    <p>4+ years experience building complex applications</p>
                 </div>
+                <!-- Add more skills -->
             </div>
         </div>
     </section>
@@ -78,19 +77,25 @@
     <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
+            <h2 class="section-title">Get in Touch</h2>
             <div class="contact-wrapper">
                 <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn primary">Send Message</button>
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn">Send Message</button>
                 </form>
                 <div class="social-links">
-                    <a href="https://github.com/vadhul" class="social-link">
+                    <a href="#" class="social-link">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://linkedin.com/in/vadhul" class="social-link">
+                    <a href="#" class="social-link">
                         <i class="fab fa-linkedin"></i>
                     </a>
                 </div>
@@ -98,6 +103,6 @@
         </div>
     </section>
 
-    <script src="scripts/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
