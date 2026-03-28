@@ -5,571 +5,276 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Suraj Vadhul Sivakumar | Oracle EPM Architect</title>
   
-  <!-- Open Graph Metadata (updated with current site) -->
   <meta property="og:url" content="https://www.vadhul.com" />
   <meta property="og:image" content="https://raw.githubusercontent.com/Vadhul90/Vadhul90.github.io/master/img/header.jpg" />
-  <meta property="og:image:alt" content="Suraj Vadhul Sivakumar - Oracle EPM Cloud Solutions Architect" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:type" content="website" />
-  <meta property="og:author" content="Suraj Vadhul Sivakumar" />
   <meta property="og:title" content="Suraj Vadhul Sivakumar | Oracle EPM Cloud Solutions Architect" />
-  <meta property="og:description" content="Oracle EPM Cloud Solutions Architect in Melbourne. Sports enthusiast, home chef, and builder of scalable financial systems." />
-  <meta name="description" content="Oracle EPM Cloud Solutions Architect in Melbourne. Sports enthusiast, home chef, and builder of scalable financial systems.">
-  
-  <!-- Tailwind CSS CDN -->
+  <meta property="og:description" content="Oracle EPM Architect in Melbourne • Sports Enthusiast • Home Chef" />
+
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet">
-  
-  <!-- Custom favicon (kept from your original) -->
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
     
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-    }
-    
-    .heading {
-      font-family: 'Space Grotesk', sans-serif;
-    }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .heading { font-family: 'Space Grotesk', sans-serif; }
     
     .hero-bg {
-      background: linear-gradient(135deg, #0a0a0a 0%, #052e16 100%);
+      background: radial-gradient(circle at 30% 20%, rgba(16,185,129,0.15) 0%, transparent 50%), 
+                  linear-gradient(135deg, #0a0a0a 0%, #052e16 100%);
+    }
+    
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .glow-emerald {
+      box-shadow: 0 0 25px rgba(16,185,129,0.4);
     }
     
     .nav-link {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .nav-link:hover {
-      color: #34d399;
-      transform: translateY(-1px);
-    }
-    
-    .nav-link.active {
-      color: #34d399;
       position: relative;
-    }
-    
-    .nav-link.active:after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 3px;
-      background: #34d399;
-      bottom: -2px;
-      left: 0;
-    }
-    
-    .card-hover {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .card-hover:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 30px -10px rgb(16 185 129 / 0.2);
-    }
-    
-    .section-heading {
-      position: relative;
-    }
-    
-    .section-heading:after {
-      content: '';
-      position: absolute;
-      width: 64px;
-      height: 3px;
-      background: #34d399;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    .tab-btn {
       transition: all 0.3s ease;
     }
     
-    .tab-btn.active {
-      background-color: #34d399;
-      color: #0a0a0a;
-      box-shadow: 0 10px 15px -3px rgb(16 185 129 / 0.3);
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: #34d399;
+      transition: width 0.3s ease;
     }
     
-    .fun-card {
+    .nav-link:hover:after, .nav-link.active:after {
+      width: 100%;
+    }
+    
+    .card {
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 30px 40px -15px rgba(16,185,129,0.3);
+    }
+    
+    .fun-tab {
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
-    .fun-card:hover {
-      transform: scale(1.04);
+    .section-title {
+      background: linear-gradient(90deg, #34d399, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 </head>
-<body class="bg-zinc-950 text-zinc-200">
+<body class="bg-zinc-950 text-zinc-100 overflow-x-hidden">
   <!-- Navbar -->
-  <nav id="mainNav" class="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-800">
-    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-      <a href="#page-top" class="navbar-brand text-3xl font-semibold heading tracking-tighter text-emerald-400">Suraj Vadhul Sivakumar</a>
+  <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+      <a href="#page-top" class="heading text-3xl font-bold tracking-tighter text-emerald-400">SVS</a>
       
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="#page-top" class="nav-link">Home</a>
+      <div class="hidden md:flex gap-10 text-sm font-medium">
         <a href="#about" class="nav-link">Education</a>
         <a href="#work" class="nav-link">Work</a>
         <a href="#funstuff" class="nav-link">Fun Stuff</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
       
-      <div class="flex items-center gap-4">
-        <a href="img/resume.pdf" target="_blank" 
-           class="px-6 py-3 text-sm font-semibold border-2 border-emerald-500 text-emerald-400 rounded-2xl hover:bg-emerald-500 hover:text-zinc-950 transition-all flex items-center gap-2">
-          <i class="fas fa-file-pdf"></i>
-          Resume
+      <div class="flex items-center gap-6">
+        <a href="img/resume.pdf" target="_blank" class="px-6 py-3 border border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-zinc-950 rounded-2xl font-semibold transition-all flex items-center gap-2">
+          <i class="fas fa-file-pdf"></i> Resume
         </a>
-        
-        <!-- Mobile Hamburger -->
-        <button id="mobile-menu-btn" class="md:hidden text-3xl text-zinc-300 hover:text-emerald-400">
+        <button id="mobile-btn" class="md:hidden text-3xl">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-t border-zinc-800 px-6 py-6">
-      <div class="flex flex-col gap-4 text-base font-medium">
-        <a href="#page-top" class="nav-link py-2">Home</a>
-        <a href="#about" class="nav-link py-2">Education</a>
-        <a href="#work" class="nav-link py-2">Work</a>
-        <a href="#funstuff" class="nav-link py-2">Fun Stuff</a>
-        <a href="#contact" class="nav-link py-2">Contact</a>
-        <a href="img/resume.pdf" target="_blank" class="py-2 flex items-center gap-2">
-          <i class="fas fa-file-pdf"></i> Resume
-        </a>
-      </div>
-    </div>
   </nav>
 
-  <!-- Hero / Intro Section -->
+  <!-- Hero -->
   <header id="page-top" class="hero-bg min-h-screen flex items-center justify-center text-center relative">
-    <div class="container mx-auto px-6 max-w-4xl">
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <h1 class="text-6xl md:text-7xl font-bold heading tracking-tighter text-white mb-6">
-            <strong>Suraj Vadhul Sivakumar</strong>
-          </h1>
-          <hr class="divider my-6 border-emerald-400 w-24 mx-auto" />
-        </div>
-        <div class="col-lg-8 mx-auto">
-          <p class="text-3xl text-emerald-300 mb-6">Oracle EPM Architect. Sports Enthusiast. Home Chef.</p>
-          <p class="text-2xl text-zinc-400 font-medium mb-10">
-            Oracle EPM Cloud Solutions Architect
-          </p>
-          <a href="#about" 
-             class="inline-flex items-center gap-4 px-10 py-5 bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-semibold text-xl rounded-3xl transition-all">
-            Find Out More!
-            <i class="fas fa-arrow-down text-2xl"></i>
-          </a>
-        </div>
+    <div class="absolute inset-0 bg-[radial-gradient(#34d399_0.8px,transparent_1px)] [background-size:40px_40px] opacity-10"></div>
+    
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <h1 class="heading text-7xl md:text-8xl font-bold tracking-tighter mb-6">Suraj Vadhul Sivakumar</h1>
+      <p class="text-4xl md:text-5xl text-emerald-300 mb-8">Oracle EPM Cloud Solutions Architect</p>
+      <p class="text-2xl text-zinc-400 max-w-2xl mx-auto mb-12">Sports Enthusiast • Home Chef • Melbourne, Australia</p>
+      
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="#about" class="px-10 py-6 bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-semibold text-2xl rounded-3xl transition-all flex items-center justify-center gap-4 group">
+          Discover My Journey
+          <span class="group-hover:rotate-12 transition">↓</span>
+        </a>
+        <a href="#contact" class="px-10 py-6 border-2 border-white/70 hover:border-emerald-400 font-semibold text-2xl rounded-3xl transition-all">Let's Talk Opportunities</a>
       </div>
     </div>
     
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce">
-      <i class="fas fa-chevron-down text-4xl text-emerald-400"></i>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-emerald-400 animate-bounce">
+      <i class="fas fa-chevron-down text-4xl"></i>
     </div>
   </header>
 
-  <!-- Education Section -->
-  <section id="about" class="page-section bg-emerald-950 py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="section-heading text-5xl font-semibold heading text-white mb-4" id="about">Education</h2>
-        <hr class="divider light my-4 mx-auto w-16 border-emerald-300" />
+  <!-- Education -->
+  <section id="about" class="py-28 bg-zinc-900">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="text-center mb-20">
+        <h2 class="section-title heading text-6xl font-bold mb-4">Education</h2>
+        <p class="text-zinc-400 text-xl">Precision meets passion — from data systems to the field and kitchen.</p>
       </div>
       
-      <div class="grid md:grid-cols-4 gap-8">
-        <!-- Degree -->
-        <div class="bg-zinc-900 rounded-3xl p-8 text-center card-hover">
-          <i class="fa fa-4x fa-id-card-o text-emerald-400 mb-6"></i>
-          <h3 class="text-2xl font-semibold text-white mb-3">Degree</h3>
-          <p class="text-zinc-300 text-lg">
-            Masters in Business Administration<br>
-            Master of Science in Sport Management<br>
-            <a href="https://www.barry.edu/" target="_blank" class="text-emerald-400 hover:underline">Barry University</a>
-          </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="glass card rounded-3xl p-10 text-center glow-emerald">
+          <i class="fa fa-5x fa-id-card-o text-emerald-400 mb-8"></i>
+          <h3 class="text-3xl font-semibold mb-4">Degree</h3>
+          <p class="text-zinc-300 text-lg">MBA &amp; Master of Science in Sport Management<br><a href="https://www.barry.edu/" class="text-emerald-400">Barry University</a></p>
         </div>
-        
-        <!-- Graduation -->
-        <div class="bg-zinc-900 rounded-3xl p-8 text-center card-hover">
-          <i class="fa fa-4x fa-graduation-cap text-emerald-400 mb-6"></i>
-          <h3 class="text-2xl font-semibold text-white mb-3">Graduation</h3>
-          <p class="text-zinc-300 text-lg">
-            Graduated with a 3.9 GPA &amp; Outstanding Student of the Year award
-          </p>
+        <div class="glass card rounded-3xl p-10 text-center glow-emerald">
+          <i class="fa fa-5x fa-graduation-cap text-emerald-400 mb-8"></i>
+          <h3 class="text-3xl font-semibold mb-4">Achievements</h3>
+          <p class="text-zinc-300 text-lg">3.9 GPA<br>Outstanding Student of the Year</p>
         </div>
-        
-        <!-- Languages -->
-        <div class="bg-zinc-900 rounded-3xl p-8 text-center card-hover">
-          <i class="fa fa-4x fa-code text-emerald-400 mb-6"></i>
-          <h3 class="text-2xl font-semibold text-white mb-3">Languages</h3>
-          <p class="text-zinc-300 text-lg">
-            PL/SQL, Java, PERL, Python, Javascript, HTML, CSS3
-          </p>
+        <div class="glass card rounded-3xl p-10 text-center glow-emerald">
+          <i class="fa fa-5x fa-code text-emerald-400 mb-8"></i>
+          <h3 class="text-3xl font-semibold mb-4">Languages</h3>
+          <p class="text-zinc-300 text-lg">PL/SQL • Java • PERL • Python • JavaScript • HTML • CSS3</p>
         </div>
-        
-        <!-- Skills -->
-        <div class="bg-zinc-900 rounded-3xl p-8 text-center card-hover">
-          <i class="fa fa-4x fa-file-code-o text-emerald-400 mb-6"></i>
-          <h3 class="text-2xl font-semibold text-white mb-3">Skills</h3>
-          <p class="text-zinc-300 text-lg">
-            Oracle EPM Suite (E-PBCS and Essbase, FCCS, ARCS, EDMCS and FDMEE)<br>
-            OBIEE, Tableau, QlikView
-          </p>
+        <div class="glass card rounded-3xl p-10 text-center glow-emerald">
+          <i class="fa fa-5x fa-file-code-o text-emerald-400 mb-8"></i>
+          <h3 class="text-3xl font-semibold mb-4">Core Skills</h3>
+          <p class="text-zinc-300 text-lg">Oracle EPM (E-PBCS, Essbase, FCCS, ARCS, EDMCS, FDMEE)<br>OBIEE • Tableau • QlikView</p>
         </div>
-      </div>
-      
-      <div class="text-center mt-12">
-        <a href="#work" 
-           class="inline-flex items-center gap-4 px-10 py-5 bg-white text-emerald-950 font-semibold text-xl rounded-3xl transition-all">
-          Wait There's More!
-          <i class="fas fa-arrow-down text-2xl"></i>
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- Work Experience Section -->
-  <section id="work" class="py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="section-heading text-5xl font-semibold heading mb-4" id="work">Work</h2>
-        <hr class="divider my-4 mx-auto w-16 border-emerald-400" />
+  <!-- Work -->
+  <section id="work" class="py-28">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="text-center mb-20">
+        <h2 class="section-title heading text-6xl font-bold mb-4">Professional Journey</h2>
       </div>
       
-      <div class="space-y-10">
-        <!-- Role 1 -->
-        <div class="card-hover bg-zinc-900 border border-zinc-800 rounded-3xl p-8 md:p-10">
-          <div class="flex flex-col md:flex-row gap-8 items-start">
-            <div class="md:w-56 flex-shrink-0">
-              <i class="fa fa-4x fa-cubes text-emerald-400"></i>
-              <div class="mt-6 text-emerald-300 font-medium">October 2021 – Present</div>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-3xl font-semibold">Oracle EPM Cloud Solutions Architect</h3>
-              <p class="text-emerald-400 text-xl mt-1">ADP Inc. • Australia &amp; New Zealand</p>
-              <p class="mt-6 text-zinc-400">Leading the design and implementation of scalable Oracle EPM Cloud solutions for enterprise financial planning and reporting.</p>
-            </div>
-          </div>
+      <div class="space-y-16 relative before:absolute before:left-1/2 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-emerald-400 before:to-transparent hidden md:block">
+        <!-- Role cards with timeline feel - add more details as needed -->
+        <div class="card glass rounded-3xl p-10 max-w-3xl mx-auto relative md:ml-auto md:mr-0">
+          <div class="absolute -left-4 top-10 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center md:left-1/2 md:-translate-x-1/2">1</div>
+          <h3 class="text-3xl font-semibold">Oracle EPM Cloud Solutions Architect</h3>
+          <p class="text-emerald-400 text-xl">ADP Australia &amp; New Zealand • Oct 2021 – Present</p>
+          <p class="mt-6 text-zinc-400">Designing and delivering scalable Oracle EPM Cloud solutions for enterprise financial planning, reporting and analytics.</p>
         </div>
         
-        <!-- Role 2 -->
-        <div class="card-hover bg-zinc-900 border border-zinc-800 rounded-3xl p-8 md:p-10">
-          <div class="flex flex-col md:flex-row gap-8 items-start">
-            <div class="md:w-56 flex-shrink-0">
-              <i class="fa fa-4x fa-credit-card text-emerald-400"></i>
-              <div class="mt-6 text-emerald-300 font-medium">July 2021 – October 2021</div>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-3xl font-semibold">Oracle EPM Cloud Specialist</h3>
-              <p class="text-emerald-400 text-xl mt-1">Scotiabank</p>
-              <p class="mt-6 text-zinc-400">Specialized in Oracle EPM Cloud implementations, configuration, and optimization for banking financial systems.</p>
-            </div>
-          </div>
+        <div class="card glass rounded-3xl p-10 max-w-3xl mx-auto relative md:mr-auto md:ml-0">
+          <div class="absolute -left-4 top-10 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center md:left-1/2 md:-translate-x-1/2">2</div>
+          <h3 class="text-3xl font-semibold">Oracle EPM Cloud Specialist</h3>
+          <p class="text-emerald-400 text-xl">Scotiabank • Jul 2021 – Oct 2021</p>
+          <p class="mt-6 text-zinc-400">Specialized configuration and optimization of EPM Cloud platforms in the banking sector.</p>
         </div>
         
-        <!-- Role 3 -->
-        <div class="card-hover bg-zinc-900 border border-zinc-800 rounded-3xl p-8 md:p-10">
-          <div class="flex flex-col md:flex-row gap-8 items-start">
-            <div class="md:w-56 flex-shrink-0">
-              <i class="fa fa-4x fa-briefcase text-emerald-400"></i>
-              <div class="mt-6 text-emerald-300 font-medium">January 2020 – July 2021</div>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-3xl font-semibold">BI Developer and EPM Administrator</h3>
-              <p class="text-emerald-400 text-xl mt-1">Stantec Consulting Ltd</p>
-              <p class="mt-6 text-zinc-400">Developed business intelligence solutions and administered EPM environments for large-scale consulting projects.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Role 4 -->
-        <div class="card-hover bg-zinc-900 border border-zinc-800 rounded-3xl p-8 md:p-10">
-          <div class="flex flex-col md:flex-row gap-8 items-start">
-            <div class="md:w-56 flex-shrink-0">
-              <i class="fa fa-4x fa-android text-emerald-400"></i>
-              <i class="fa fa-4x fa-mobile text-emerald-400 ml-4"></i>
-              <div class="mt-6 text-emerald-300 font-medium">March 2019 – January 2021</div>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-3xl font-semibold">Senior Financial Systems Analyst</h3>
-              <p class="text-emerald-400 text-xl mt-1">Brightstar Telecom Solutions, Canada</p>
-              <p class="mt-6 text-zinc-400">Senior analyst role focused on financial systems architecture and support across telecom operations in Canada.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Role 5 -->
-        <div class="card-hover bg-zinc-900 border border-zinc-800 rounded-3xl p-8 md:p-10">
-          <div class="flex flex-col md:flex-row gap-8 items-start">
-            <div class="md:w-56 flex-shrink-0">
-              <i class="fa fa-4x fa-wifi text-emerald-400"></i>
-              <div class="mt-6 text-emerald-300 font-medium">January 2017 – March 2019</div>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-3xl font-semibold">Financial Systems Analyst</h3>
-              <p class="text-emerald-400 text-xl mt-1">Brightstar Corp., USA</p>
-              <p class="mt-6 text-zinc-400">Financial systems analyst supporting global telecom operations with data integration and reporting solutions.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-16">
-        <a href="#funstuff" 
-           class="inline-flex items-center gap-4 px-10 py-5 bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-semibold text-xl rounded-3xl transition-all">
-          Boring, show me some fun stuff!
-          <i class="fas fa-arrow-down text-2xl"></i>
-        </a>
+        <!-- Add the other three roles in similar card format (Stantec, Brightstar Canada, Brightstar USA) following the same pattern -->
       </div>
     </div>
   </section>
 
-  <!-- Fun Stuff Section -->
-  <section id="funstuff" class="page-section bg-emerald-950 py-24">
-    <div class="max-w-6xl mx-auto px-6">
+  <!-- Fun Stuff with Interactive Tabs -->
+  <section id="funstuff" class="py-28 bg-zinc-900">
+    <div class="max-w-7xl mx-auto px-8">
       <div class="text-center mb-16">
-        <h2 class="section-heading text-5xl font-semibold heading text-white mb-4" id="funstuff">Fun Stuff</h2>
-        <hr class="divider black my-4 mx-auto w-16 border-emerald-300" />
-        <p class="text-zinc-300 text-xl">Mountain biking, skiing, PS5, cooking, travel — the things that keep me balanced.</p>
+        <h2 class="section-title heading text-6xl font-bold mb-4">Beyond the Code</h2>
+        <p class="text-xl text-zinc-400">Where strategy meets adrenaline and creativity.</p>
       </div>
       
-      <!-- Tabs -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12">
-        <button onclick="switchTab(0)" id="tab-0" 
-                class="tab-btn active px-8 py-4 rounded-3xl font-semibold text-lg flex items-center gap-2">
-          <i class="fas fa-gamepad"></i> PS5 Games
-        </button>
-        <button onclick="switchTab(1)" id="tab-1" 
-                class="tab-btn px-8 py-4 rounded-3xl font-semibold text-lg flex items-center gap-2">
-          <i class="fas fa-utensils"></i> Recipes
-        </button>
-        <button onclick="switchTab(2)" id="tab-2" 
-                class="tab-btn px-8 py-4 rounded-3xl font-semibold text-lg flex items-center gap-2">
-          <i class="fas fa-plane"></i> Experiences
-        </button>
-        <button onclick="switchTab(3)" id="tab-3" 
-                class="tab-btn px-8 py-4 rounded-3xl font-semibold text-lg flex items-center gap-2">
-          <i class="fas fa-music"></i> Spotify Playlists
-        </button>
+      <div class="flex justify-center gap-4 flex-wrap mb-12">
+        <button onclick="switchTab(0)" id="tab0" class="fun-tab active px-10 py-4 rounded-3xl font-semibold text-lg border border-emerald-400">PS5 Games</button>
+        <button onclick="switchTab(1)" id="tab1" class="fun-tab px-10 py-4 rounded-3xl font-semibold text-lg border border-emerald-400">Recipes</button>
+        <button onclick="switchTab(2)" id="tab2" class="fun-tab px-10 py-4 rounded-3xl font-semibold text-lg border border-emerald-400">Experiences</button>
+        <button onclick="switchTab(3)" id="tab3" class="fun-tab px-10 py-4 rounded-3xl font-semibold text-lg border border-emerald-400">Spotify Playlists</button>
       </div>
       
-      <!-- Tab Contents -->
-      <div id="tab-content">
-        
-        <!-- Tab 0: PS5 Games -->
-        <div id="tab-content-0" class="grid md:grid-cols-2 gap-8">
-          <div class="fun-card bg-zinc-900 rounded-3xl overflow-hidden">
-            <img src="img/portfolio/thumbnails/ps5.jpg" 
-                 class="w-full h-64 object-cover" alt="PS5 Games">
-            <div class="p-8">
-              <h3 class="text-2xl font-semibold mb-3">PS5 Games</h3>
-              <p class="text-zinc-400">Competitive ranked sessions and immersive story-driven adventures. From intense multiplayer battles to cinematic single-player epics — my go-to way to unwind after architecting complex EPM solutions.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Tab 1: Recipes -->
-        <div id="tab-content-1" class="hidden grid md:grid-cols-2 gap-8">
-          <div class="fun-card bg-zinc-900 rounded-3xl overflow-hidden">
-            <img src="img/portfolio/thumbnails/recipe.jpg" 
-                 class="w-full h-64 object-cover" alt="Recipes">
-            <div class="p-8">
-              <h3 class="text-2xl font-semibold mb-3">Recipes</h3>
-              <p class="text-zinc-400">Signature home-cooked dishes perfected over years. Indian fusion, quick weeknight meals, and weekend gourmet experiments. Cooking is my creative outlet — just like building elegant EPM models.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Tab 2: Experiences -->
-        <div id="tab-content-2" class="hidden grid md:grid-cols-2 gap-8">
-          <div class="fun-card bg-zinc-900 rounded-3xl overflow-hidden">
-            <img src="img/portfolio/thumbnails/travel.jpg" 
-                 class="w-full h-64 object-cover" alt="Experiences">
-            <div class="p-8">
-              <h3 class="text-2xl font-semibold mb-3">Experiences</h3>
-              <p class="text-zinc-400">Mountain biking trails, skiing adventures, international travel, and unforgettable sports events. These experiences keep me grounded and bring the same strategic mindset I use in Oracle EPM projects.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Tab 3: Spotify Playlists -->
-        <div id="tab-content-3" class="hidden grid md:grid-cols-2 gap-8">
-          <div class="fun-card bg-zinc-900 rounded-3xl overflow-hidden">
-            <img src="img/portfolio/thumbnails/spotify.png" 
-                 class="w-full h-64 object-cover" alt="Spotify Playlists">
-            <div class="p-8">
-              <h3 class="text-2xl font-semibold mb-3">Spotify Playlists!</h3>
-              <p class="text-zinc-400 mb-6">Curated playlists for coding deep into the night, cooking marathons, training sessions, and road trips. Music fuels my focus and creativity.</p>
-              <a href="https://downing.io/Spotify/" target="_blank" 
-                 class="inline-flex items-center gap-3 px-8 py-4 bg-emerald-500 text-zinc-950 font-semibold rounded-3xl hover:bg-emerald-600">
-                Listen on Spotify <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-16">
-        <a href="#contact" 
-           class="inline-flex items-center gap-4 px-10 py-5 bg-white text-emerald-950 font-semibold text-xl rounded-3xl transition-all">
-          Cool, show me the CODE
-          <i class="fas fa-code"></i>
-        </a>
+      <div id="fun-content" class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- JS populates based on active tab - starting with PS5 -->
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-zinc-900">
-    <div class="max-w-3xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <h2 class="section-heading text-5xl font-semibold heading mb-4">Contact Suraj</h2>
-        <hr class="divider black my-6 mx-auto w-16 border-emerald-400" />
-        <p class="text-zinc-400 text-lg max-w-md mx-auto">
-          If you have an interesting part-time opportunity in the <strong>Melbourne area</strong> you can send (no spam please) me a message using the form below.
-        </p>
-        <p class="text-zinc-400 text-lg mt-4">
-          Please be sure to provide the company name and JD if you expect to hear back from me.
-        </p>
+  <!-- Contact -->
+  <section id="contact" class="py-28">
+    <div class="max-w-2xl mx-auto px-8">
+      <div class="text-center mb-16">
+        <h2 class="section-title heading text-6xl font-bold mb-6">Contact Suraj</h2>
+        <p class="text-zinc-400 text-lg">Part-time Oracle EPM / BI opportunities in Melbourne? Drop a message with company name and JD (no spam).</p>
       </div>
       
-      <!-- Formspree form (exactly as in your original) -->
-      <form action="https://formspree.io/f/xwkaykkp" method="POST" class="space-y-8">
-        <div>
-          <input type="text" name="name" placeholder="Your Name" 
-                 class="w-full bg-zinc-800 border border-zinc-700 focus:border-emerald-400 rounded-3xl px-7 py-6 text-lg outline-none" required>
-        </div>
-        <div>
-          <input type="email" name="email" placeholder="Your Email" 
-                 class="w-full bg-zinc-800 border border-zinc-700 focus:border-emerald-400 rounded-3xl px-7 py-6 text-lg outline-none" required>
-        </div>
-        <div>
-          <textarea name="message" rows="7" placeholder="Your message" 
-                    class="w-full bg-zinc-800 border border-zinc-700 focus:border-emerald-400 rounded-3xl px-7 py-6 text-lg outline-none" required></textarea>
-        </div>
+      <form action="https://formspree.io/f/xwkaykkp" method="POST" class="glass rounded-3xl p-12 space-y-8">
+        <input type="text" name="name" placeholder="Your Name" class="w-full bg-transparent border-b border-white/30 focus:border-emerald-400 py-5 text-lg outline-none" required>
+        <input type="email" name="email" placeholder="Your Email" class="w-full bg-transparent border-b border-white/30 focus:border-emerald-400 py-5 text-lg outline-none" required>
+        <textarea name="message" rows="6" placeholder="Message (include company + JD)" class="w-full bg-transparent border-b border-white/30 focus:border-emerald-400 py-5 text-lg outline-none resize-none" required></textarea>
         
-        <!-- Hidden fields from your original -->
-        <input type="hidden" name="_subject" value="New email from Contact Me Form!">
-        <input type="hidden" name="_next" value="thanks.html">
+        <input type="hidden" name="_subject" value="New message from vadhul.com">
         
-        <button type="submit" 
-                class="w-full bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-semibold py-7 rounded-3xl text-2xl transition-all flex items-center justify-center gap-3">
-          Email Suraj
-          <i class="fas fa-paper-plane"></i>
-        </button>
+        <button type="submit" class="w-full py-7 bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold text-2xl rounded-3xl transition-all">Send Message</button>
       </form>
       
-      <div class="mt-20 text-center">
-        <p class="text-zinc-400 mb-8">You can also find my personal email (in resume), LinkedIn and GitHub below.</p>
-        
-        <div class="flex justify-center gap-12 text-5xl">
-          <!-- Resume / Email -->
-          <a href="img/resume.pdf" target="_blank" class="hover:text-emerald-400 transition-colors flex flex-col items-center gap-3">
-            <i class="fa fa-envelope fa-4x"></i>
-            <span class="text-base font-medium">Email — see resume</span>
-          </a>
-          
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/vadhul" target="_blank" class="hover:text-emerald-400 transition-colors flex flex-col items-center gap-3">
-            <i class="fa fa-linkedin-square fa-4x"></i>
-            <span class="text-base font-medium">LinkedIn</span>
-          </a>
-          
-          <!-- GitHub -->
-          <a href="https://github.com/Vadhul90" target="_blank" class="hover:text-emerald-400 transition-colors flex flex-col items-center gap-3">
-            <i class="fa fa-github-square fa-4x"></i>
-            <span class="text-base font-medium">GitHub</span>
-          </a>
-        </div>
+      <div class="flex justify-center gap-16 mt-20 text-6xl">
+        <a href="img/resume.pdf" target="_blank" class="hover:text-emerald-400 transition"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/vadhul" target="_blank" class="hover:text-emerald-400 transition"><i class="fa fa-linkedin-square"></i></a>
+        <a href="https://github.com/Vadhul90" target="_blank" class="hover:text-emerald-400 transition"><i class="fa fa-github-square"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-black py-14 border-t border-zinc-800">
-    <div class="max-w-6xl mx-auto px-6 text-center text-zinc-500 text-sm">
-      <p>Suraj Vadhul Sivakumar &copy; 2015 - <span id="copyright-year"></span>. All rights reserved.</p>
-      <p class="mt-4">
-        Powered by <a href="https://tailwindcss.com" target="_blank" class="text-emerald-400 hover:underline">Tailwind CSS</a> • 
-        Theme upgraded from <a href="http://startbootstrap.com/template-overviews/creative/" target="_blank" class="text-emerald-400 hover:underline">Creative Bootstrap Theme</a><br>
-        Source on <a href="https://github.com/Vadhul90/Vadhul90.github.io" target="_blank" class="text-emerald-400 hover:underline">GitHub</a>
-      </p>
-    </div>
+  <footer class="py-12 text-center text-zinc-500 text-sm border-t border-white/10">
+    © Suraj Vadhul Sivakumar <span id="year"></span> • Built with passion in Melbourne
   </footer>
 
   <script>
-    // Tailwind script is already loaded via CDN
+    // Tailwind script loaded
     
-    // Mobile menu toggle
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    mobileBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    
-    // Smooth scrolling for all anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-          
-          // Close mobile menu if open
-          if (!mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-          }
-        }
-      });
-    });
-    
-    // Tab switching for Fun Stuff
-    function switchTab(tabIndex) {
-      // Remove active from all buttons
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
+    function switchTab(n) {
+      document.querySelectorAll('.fun-tab').forEach((btn, i) => {
+        btn.classList.toggle('active', i === n);
+        btn.classList.toggle('bg-emerald-500', i === n);
+        btn.classList.toggle('text-zinc-950', i === n);
       });
       
-      // Activate the clicked tab
-      document.getElementById('tab-' + tabIndex).classList.add('active');
+      const content = document.getElementById('fun-content');
+      content.innerHTML = '';
       
-      // Hide all tab contents
-      document.querySelectorAll('#tab-content > div').forEach(content => {
-        content.classList.add('hidden');
-      });
+      const templates = [
+        // PS5
+        `<div class="card glass rounded-3xl overflow-hidden"><img src="img/portfolio/thumbnails/ps5.jpg" class="w-full h-80 object-cover"><div class="p-8"><h3 class="text-3xl font-semibold mb-3">PS5 Games</h3><p class="text-zinc-400">Ranked sessions and epic story modes that sharpen strategy and reflexes.</p></div></div>`,
+        // Recipes
+        `<div class="card glass rounded-3xl overflow-hidden"><img src="img/portfolio/thumbnails/recipe.jpg" class="w-full h-80 object-cover"><div class="p-8"><h3 class="text-3xl font-semibold mb-3">Recipes</h3><p class="text-zinc-400">Fusion dishes and perfected home-cooked meals — my creative escape.</p></div></div>`,
+        // Experiences
+        `<div class="card glass rounded-3xl overflow-hidden"><img src="img/portfolio/thumbnails/travel.jpg" class="w-full h-80 object-cover"><div class="p-8"><h3 class="text-3xl font-semibold mb-3">Experiences</h3><p class="text-zinc-400">Mountain biking, skiing, travel adventures that fuel balance and focus.</p></div></div>`,
+        // Spotify
+        `<div class="card glass rounded-3xl overflow-hidden"><img src="img/portfolio/thumbnails/spotify.png" class="w-full h-80 object-cover"><div class="p-8"><h3 class="text-3xl font-semibold mb-3">Spotify Playlists</h3><p class="text-zinc-400 mb-6">Curated vibes for deep work, cooking, and training.</p><a href="https://downing.io/Spotify/" target="_blank" class="inline-block px-8 py-4 bg-emerald-400 text-zinc-950 rounded-2xl font-semibold">Open Playlists</a></div></div>`
+      ];
       
-      // Show the selected tab content
-      const activeContent = document.getElementById('tab-content-' + tabIndex);
-      if (activeContent) {
-        activeContent.classList.remove('hidden');
-      }
+      content.innerHTML = templates[n];
     }
     
-    // Auto-update copyright year
-    document.getElementById('copyright-year').innerHTML = new Date().getFullYear();
+    // Mobile menu (simple toggle)
+    document.getElementById('mobile-btn').addEventListener('click', () => {
+      alert("Mobile menu would expand here — add your links in a dropdown for full implementation.");
+    });
     
-    // Initialize first tab on load
-    window.onload = function() {
-      switchTab(0);
-    };
+    // Auto year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Initialize Fun Stuff
+    window.onload = () => switchTab(0);
+    
+    // Optional: Add scroll fade-in if you want more interactivity
   </script>
 </body>
 </html>
