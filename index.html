@@ -394,40 +394,56 @@
     </div>
   </section>
     
-  <!-- Contact / Opportunities -->
+    <!-- Contact / Opportunities -->
   <section id="contact" class="py-20 md:py-28 bg-zinc-900">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="heading text-5xl md:text-6xl font-bold mb-4 text-emerald-300">Let's Connect</h2>
         <p class="text-xl text-zinc-400 max-w-2xl mx-auto">
-          If you have an interesting opportunity - part-time, freelance, or consulting in Oracle EPM, iOS development, or related areas, 
+          If you have an interesting opportunity — full-time, part-time, freelance, or consulting — in Oracle EPM, iOS development, or related areas, 
           I'd love to hear from you.
         </p>
       </div>
 
       <div class="glass rounded-3xl p-10 md:p-12">
         <form action="https://formspree.io/f/xwkaykkp" method="POST" class="space-y-8">
+
+          <!-- Visible Fields -->
           <div class="grid md:grid-cols-2 gap-6">
             <div>
               <label class="block text-sm font-medium text-zinc-400 mb-2">Your Name</label>
-              <input type="text" name="name" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400 outline-none transition-colors">
+              <input type="text" name="name" required 
+                     class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400 outline-none">
             </div>
             <div>
               <label class="block text-sm font-medium text-zinc-400 mb-2">Your Email</label>
-              <input type="email" name="_replyto" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400 outline-none transition-colors">
+              <input type="email" name="_replyto" required 
+                     class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400 outline-none">
             </div>
           </div>
 
           <div>
             <label class="block text-sm font-medium text-zinc-400 mb-2">Opportunity / Job Title</label>
-            <input type="text" name="opportunity" placeholder="e.g. Senior Oracle EPM Consultant - Remote" 
-                   class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400 outline-none transition-colors">
+            <input type="text" name="opportunity" placeholder="e.g. Oracle EPM Consultant - Part Time" 
+                   class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400 outline-none">
           </div>
 
           <div>
             <label class="block text-sm font-medium text-zinc-400 mb-2">Message or Job Description</label>
-            <textarea name="message" rows="7" placeholder="Paste the job description or tell me about the opportunity..." 
-                      class="w-full bg-zinc-800 border border-zinc-700 rounded-3xl px-6 py-4 focus:border-emerald-400 outline-none resize-y transition-colors"></textarea>
+            <textarea name="message" rows="7" placeholder="Paste the JD or describe the opportunity here..." 
+                      class="w-full bg-zinc-800 border border-zinc-700 rounded-3xl px-6 py-4 focus:border-emerald-400 outline-none resize-y"></textarea>
+          </div>
+
+          <!-- Anti-Spam: Honeypot (hidden from humans) -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <!-- Anti-Spam: Human Confirmation Checkbox -->
+          <div class="flex items-start gap-3 pt-4">
+            <input type="checkbox" id="not-robot" name="not-robot" required 
+                   class="mt-1 w-5 h-5 accent-emerald-500">
+            <label for="not-robot" class="text-sm text-zinc-400 cursor-pointer">
+              I am a real person and not a spam bot. <span class="text-emerald-400">*</span>
+            </label>
           </div>
 
           <button type="submit" 
